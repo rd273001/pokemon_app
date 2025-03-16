@@ -1,4 +1,5 @@
 // Navigation params for the app
 export type RootStackParamList = {
-  Home: undefined;
+  HomeScreen: undefined;
+  FilterBottomSheetModal: undefined;
 };

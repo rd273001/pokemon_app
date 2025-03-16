@@ -11,5 +11,8 @@ export default {
   accent: {
     light: '#DAD3EB',
     dark: '#A454F7',
+  },
+  accentBtnLabel: {
+    light: "#E6E7FA",
   }
 };

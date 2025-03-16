@@ -1,11 +1,17 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, SafeAreaView } from 'react-native';
+import { styles } from './styles';
+import Header from '../../components/home/header';
 
 const HomeScreen = () => {
+
   return (
-    <View>
-      <Text style={{color: '#b2b'}}>Home</Text>
-    </View>
+    <SafeAreaView style={ styles.safeArea }>
+      <View style={ styles.container }>
+        <Header />
+
+      </View>
+    </SafeAreaView>
   )
 };
 
