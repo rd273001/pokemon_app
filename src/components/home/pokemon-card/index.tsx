@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { IPokemonCardProps } from './interfaces';
 import { styles } from './styles';
+import FastImage from 'react-native-fast-image';
 
 const PokemonCard = ( { pokemon, isGridView }: IPokemonCardProps ) => {
   // Capitalize first letter of Pokemon name
@@ -11,10 +12,10 @@ const PokemonCard = ( { pokemon, isGridView }: IPokemonCardProps ) => {
   if ( isGridView ) {
     return (
       <TouchableOpacity style={ styles.gridCard }>
-        <Image
+        <FastImage
           source={ { uri: pokemon.image } }
           style={ styles.gridImage }
-          resizeMode='contain'
+          resizeMode={ FastImage.resizeMode.contain }
         />
         <View style={ styles.gridInfoContainer }>
           <Text style={ styles.gridName }>{ capitalizedName }</Text>
@@ -27,10 +28,10 @@ const PokemonCard = ( { pokemon, isGridView }: IPokemonCardProps ) => {
   // List view card
   return (
     <TouchableOpacity style={ styles.listCard }>
-      <Image
+      <FastImage
         source={ { uri: pokemon.image } }
         style={ styles.listImage }
-        resizeMode='contain'
+        resizeMode={ FastImage.resizeMode.contain }
       />
       <View style={ styles.listInfoContainer }>
         <Text style={ styles.listName }>{ capitalizedName }</Text>

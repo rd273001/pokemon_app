@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { SafeAreaView, RefreshControl } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -35,20 +35,20 @@ const HomeScreen = () => {
   }, [dispatch, selectedType] );
 
   // Load more Pokemon when reaching the end of the list
-  const handleLoadMore = () => {
+  const handleLoadMore = useCallback( () => {
     if ( !loading && hasMore && selectedType === 'all' ) {
       dispatch( fetchPokemonList( { limit, offset } ) );
     }
-  };
+  }, [loading, hasMore, selectedType, dispatch, limit, offset] );
 
-  const refreshControl = (
+  const refreshControl = useMemo( () => (
     <RefreshControl
       refreshing={ loading && !!filteredPokemonList?.length }
-      onRefresh={ () => dispatch( fetchPokemonList( { limit, offset } ) ) }
+      onRefresh={ () => dispatch( fetchPokemonList( { limit, offset: 0 } ) ) }
       colors={ [Colors.accent.dark] }
       progressBackgroundColor={ Colors.accent.light }
     />
-  );
+  ), [loading, filteredPokemonList?.length, dispatch, limit] );
 
   return (
     <SafeAreaView style={ styles.container }>
