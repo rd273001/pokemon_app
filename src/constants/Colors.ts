@@ -14,5 +14,10 @@ export default {
   },
   accentBtnLabel: {
     light: "#E6E7FA",
-  }
+  },
+  gray: {
+    light: '#E0E0E0',
+    medium: '#777',
+    dark: '#555',
+  },
 };

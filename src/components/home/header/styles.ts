@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../../constants/Colors";
-import { scale, scaleFont, verticalScale } from "../../../constants/Layout";
+import { scale, verticalScale } from "../../../constants/Layout";
 
 const { accent, white } = Colors;
 
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create( {
     backgroundColor: accent.dark
   },
   title: {
-    fontSize: scaleFont( 20 ),
+    fontSize: scale( 20 ),
     fontWeight: 'bold',
     color: white.light,
   },

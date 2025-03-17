@@ -1,4 +1,4 @@
-import { Dimensions, Platform, PixelRatio } from 'react-native';
+import { Dimensions } from 'react-native';
 
 // Get device dimensions
 export const { width, height } = Dimensions.get('window');
@@ -38,19 +38,4 @@ export const verticalScale = (size: number) => {
  */
 export const moderateScale = (size: number, factor = 0.5) => {
   return Math.round(size + (scale(size) - size) * factor);
-};
-
-/**
- * Normalize font size across different device screen densities
- * @param {number} size - Font size
- * @return {number} - Normalized font size
- */
-export const scaleFont = ( size: number ) => {
-  const newSize = size * widthScale;
-
-  if ( Platform.OS === 'ios' ) {
-    return Math.round( PixelRatio.roundToNearestPixel( newSize ) );
-  } else {
-    return Math.round( PixelRatio.roundToNearestPixel( newSize ) ) - 2;
-  }
 };

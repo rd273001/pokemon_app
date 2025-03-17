@@ -23,6 +23,7 @@ const AppNavigator = () => {
           options={ {
             presentation: 'transparentModal',
             headerShown: false,
+            cardOverlayEnabled: true
           } }
         />
       </Stack.Navigator>
